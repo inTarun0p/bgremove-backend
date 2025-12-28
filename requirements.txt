@@ -3,4 +3,4 @@ uvicorn[standard]
 rembg
 pillow
 python-multipart
-onnxruntime
+onnxruntime-cpu
