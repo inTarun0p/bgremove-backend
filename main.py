@@ -8,6 +8,7 @@ from PIL import Image
 import zipfile
 import logging
 import os
+# import uvicorn
 
 app = FastAPI(
     title="Background Removal API",
@@ -153,3 +154,9 @@ async def remove_bg_zip(file: UploadFile = File(None)):
     except Exception as e:
         logger.error(f"Unexpected error: {e}", exc_info=True)
         raise HTTPException(status_code=500, detail="An unexpected error occurred")
+
+# if __name__ == "__main__":
+#     port = int(os.environ.get("PORT", 10000))
+#     uvicorn.run(app, host="0.0.0.0", port=port)
+port = int(os.environ.get("PORT", 5000))
+app.run(host="0.0.0.0", port=port)
